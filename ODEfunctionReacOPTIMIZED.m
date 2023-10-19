@@ -1,4 +1,4 @@
-function [dydt] = ODEfunctionReac2(Time,Conc,K)
+function [dydt] = ODEfunctionReacOPTIMIZED(Time,Conc,K)
 %This function is the ODE function where the K values are unpacked and the
 %rate laws are used to see how concentrations change over time.
 
