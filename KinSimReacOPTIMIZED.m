@@ -1,4 +1,4 @@
-%KinSimReac2bV2
+%Kinetic simulater for reaction between 9 and 10
 
 %Set up costs in $/mol
 SMCost=234.03*29/25;
@@ -31,7 +31,7 @@ for basesolution=1:8
                 K(2) = kArray(2,basesolution);
                 Time = [0 reactionTime]; %in seconds
                 options = odeset('Nonnegative',1);
-                [TimeData,ConcData] = ode15s(@(Time,Conc)ODEfunctionReac2(Time,Conc,K),Time,Conc);
+                [TimeData,ConcData] = ode15s(@(Time,Conc)ODEfunctionReacOPTIMIZED(Time,Conc,K),Time,Conc);
                 productivityResult(basesolution,catLoadingInc,rxnTimeInc,startConcBInc)=ConcData(end,4)/(reactionTime/3600); %Productivity in moles product/hr
                 costResult(basesolution,catLoadingInc,rxnTimeInc,startConcBInc)=.125*SMCost+(0.125+(startConcBInc-1)*0.08)*AnCost+(.009+(1E-3)*(catLoadingInc-1))*CatCost+.125*BaseSolutionCost(basesolution); %Cost in $/L
             end
