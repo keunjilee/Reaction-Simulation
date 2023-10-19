@@ -20,7 +20,7 @@ Time = [0 ReactionTime]; %in minutes
 
 %Run ODE solver
 options = odeset('Nonnegative',1);
-[TimeData,ConcData] = ode15s(@(Time,Conc)ODEfunctionReac3(Time,Conc,K),Time,Conc);
+[TimeData,ConcData] = ode15s(@(Time,Conc)ODEfunctionReac2(Time,Conc,K),Time,Conc);
 
 
 %Plot results
